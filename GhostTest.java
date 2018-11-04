@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 public class GhostTest
 {
-    class Point 
+    class Point implements Comparable<Point>
     {
         private Integer x;
         private Integer y;
@@ -32,9 +32,51 @@ public class GhostTest
             // x == p.getY()) wont work
             return (x.equals(p.getX()) && (p.getY().equals(y)));
         }
+
+        public int compareTo(Point p)
+        {
+            if (this.x > p.getX())
+
+            {
+
+                return 1;
+
+            }
+
+            else if (this.x < p.getX())
+
+            {
+
+                return -1;
+
+            }
+
+            else if (this.y > p.getX())
+
+            {
+
+                return 1;
+
+            }
+
+            else if (this.y < p.getY())
+
+            {
+
+                return -1;
+
+            }
+
+            else
+
+            {
+
+                return 0;
+
+            }
+
+        }
     }
-
-
 
     public GhostTest()
     {
@@ -90,15 +132,15 @@ public class GhostTest
         for (int index = 0; index < 5; ++index)
         {
             points.add(p1);
-            //tp.add(p1)
-            tp.forEach(t -> tp.add(p1));
+            
+            tp.add(p1); 
+           
 
         }
 
         points.forEach(p -> System.out.println(p.getX()));
 
-       //tp.addAll(points);
-        tp.forEach(t -> tp.addAll(points));
+         tp.addAll(points);
 
         tp.forEach(p -> System.out.println(p.getX()));
 
